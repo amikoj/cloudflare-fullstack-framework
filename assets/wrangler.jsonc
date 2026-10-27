@@ -1,0 +1,30 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "my-app",
+  "main": "./src/worker.ts",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": "./build/client",
+    "binding": "ASSETS"
+  },
+  "kv_namespaces": [
+    { "binding": "APP_KV", "id": "<<kv-id>>" }
+  ],
+  "d1_databases": [
+    { "binding": "DB", "database_name": "my-app-db", "database_id": "<<d1-id>>" }
+  ],
+  "ai": {
+    "binding": "AI",
+    "remote": true
+  },
+  "vars": {
+    "SITE_URL": "https://my-app.com",
+    "LEGACY_HOSTS": "",
+    "CREEM_MAKE_PASS_ID": "",
+    "CREEM_PRO_PASS_ID": ""
+  },
+  "observability": {
+    "logs": { "enabled": true }
+  }
+}
